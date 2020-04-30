@@ -1,0 +1,34 @@
+.topnav {
+   text-align: center;
+}
+
+.topnav ul {
+   margin-top: 0px;
+   border: 10px solid #e7e7e7;
+   background-color: #f1f518;
+   padding-bottom: 40px;
+   padding-top: 40px;
+}
+ 
+.topnav a {
+   color: rgb(12, 12, 12);
+   font-weight:700;
+   font-size: 20px;
+   padding: 15px;
+}
+
+.topnav.active {
+  background-color: maroon;
+ }
+
+h1 {
+   font-family:"Comic Sans MS", cursive, sans-serif;
+   text-align: center;
+}
+
+body {
+   height: 100vh;
+   margin: 0;
+   position: relative;
+   border: 30px solid maroon;
+ }
