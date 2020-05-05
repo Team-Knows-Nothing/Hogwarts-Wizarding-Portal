@@ -11,3 +11,4 @@ School: Oregon State University
 
 To navigate to the web application, use the link: 
 
+https://team-knows-nothing.github.io/Hogwarts-Wizarding-Portal/
