@@ -17,13 +17,51 @@
          <a class="active" href="houses.html">Houses</a>
          <a href="professors.html">Professors</a>
          <a href="classes.html">Classes</a>
-         <a href="rosters.html">Rosters</a>
+      <a href="registrations.html">Registrations</a>
       </ul>
     </div>
     <br>
     <h1><strong><center>Houses of Hogwarts</center></strong></h1>
 </head>
 <body>
+      <form>
+         <fieldset>
+            <legend>Add New House</legend>
+      
+            <fieldset>
+               <label>House Name:
+                  <input type="text" name="class_title_input" size="30" maxlength="100">
+               </label>
+               <br />
+            </fieldset>
+            <br />
+      
+            <fieldset>
+               <label>House Mascot:
+                  <input type="text" name="class_credits_input" size="30" maxlength="100">
+               </label>
+               <br />
+            </fieldset>
+            <br />
+            <fieldset>
+               <label>House Founder:
+                  <input type="text" name="class_professor_input" size="30" maxlength="100">
+               </label>
+               <br />
+            </fieldset>
+            <br/>
+            <fieldset>
+               <label>House Head:
+                  <input type="text" name="class_professor_input" size="30" maxlength="100">
+               </label>
+               <br />
+            </fieldset>
+            <br />
+            <button type="submit" formaction="houses.html">Submit</button>
+         </fieldset>
+      </form>
+      <br />
+
       <table>
          <caption></caption>
          <thead>
@@ -40,24 +78,32 @@
                <td>Lion</td>
                <td>Godric Gryffindor</td>
                <td>Minerva McGonagall</td>
+               <td><button onclick="window.location.href = 'update_houses.html';">Edit</button></td>
+               <td><button onclick="window.location.href = 'update_houses.html';">Delete</button></td>
             </tr>
             <tr>
                <td>Slytherin</td>
                <td>Serpent</td>
                <td>Remus Lupin</td>
                <td>Severus Snape</td>
+               <td><button onclick="window.location.href = 'update_houses.html';">Edit</button></td>
+               <td><button onclick="window.location.href = 'update_houses.html';">Delete</button></td>
             </tr>
             <tr>
                <td>Hufflepuff</td>
                <td>Badger</td>
                <td>Helga Hufflepuff</td>
                <td>Pomona Sprout</td>
+               <td><button onclick="window.location.href = 'update_houses.html';">Edit</button></td>
+               <td><button onclick="window.location.href = 'update_houses.html';">Delete</button></td>
             </tr>
             <tr>
                <td>Ravenclaw</td>
                <td>Eagle</td>
                <td>Rowena Ravenclaw</td>
                <td>Filius Flitwick</td>
+               <td><button onclick="window.location.href = 'update_houses.html';">Edit</button></td>
+               <td><button onclick="window.location.href = 'update_houses.html';">Delete</button></td>
             </tr>
 
       
