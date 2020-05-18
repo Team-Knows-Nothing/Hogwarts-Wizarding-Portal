@@ -21,9 +21,121 @@
       </ul>
     </div>
     <br>
-    <h1><strong><center>Student Registration Search</center></strong></h1>
+    <h1><strong><center>Student Registration</center></strong></h1>
 </head>
 <body>
+      <form>
+         <fieldset>
+            <legend>Add a Class for a Student</legend>
+      
+            <fieldset>
+               <label>Student ID:
+                  <input type="number" name="class_title_input" size="30" maxlength="100">
+               </label>
+               <br />
+            </fieldset>
+            <br />
+      
+            <fieldset>
+               <label>Class ID:
+                  <input type="text" name="class_credits_input" size="30" maxlength="100">
+               </label>
+               <br />
+            </fieldset>
+            <br />
+            <button type="submit" formaction="registrations.html.html">Submit</button>
+         </fieldset>
+      </form>
+      <br />
+   <table>
+      <caption></caption>
+      <thead>
+         <tr>
+            <th><b>Student_ID</b></th>
+            <th><b>First Name</b></th>
+            <th><b>Last Name</b></th>
+            <th><b>Class_ID</b></th>
+            <th>Class</th>
+            <th colspan="2"><b>Modify</b></th>
+         </tr>
+      </thead>
+      <tbody>
+         <tr>
+            <td>1</td>
+            <td>Harry</td>
+            <td>Potter</td>
+            <td>2</td>
+            <td>Defense Against the Dark Arts</td>
+            <td><button onclick="window.location.href = 'update_students.html';">Edit</button></td>
+            <td><button onclick="window.location.href = 'index.html';">Delete</button></td>
+         </tr>
+         <tr>
+            <td>2</td>
+            <td>Hermione</td>
+            <td>Granger</td>
+            <td>5</td>
+            <td>Charms</td>
+            <td><button onclick="window.location.href = 'update_students.html';">Edit</button></td>
+            <td><button onclick="window.location.href = 'index.html';">Delete</button></td>
+         </tr>
+         <tr>
+            <td>2</td>
+            <td>Hermione</td>
+            <td>Granger</td>
+            <td>2</td>
+            <td>Defense Against the Dark Arts</td>
+            <td><button onclick="window.location.href = 'update_students.html';">Edit</button></td>
+            <td><button onclick="window.location.href = 'index.html';">Delete</button></td>
+         </tr>
+         <tr>
+            <td>3</td>
+            <td>Ronald</td>
+            <td>Weasley</td>
+            <td>3</td>
+            <td>Divination</td>
+            <td><button onclick="window.location.href = 'update_students.html';">Edit</button></td>
+            <td><button onclick="window.location.href = 'index.html';">Delete</button></td>
+         </tr>
+         <tr>
+            <td>4</td>
+            <td>Luna</td>
+            <td>Lovegood</td>
+            <td>5</td>
+            <td>Charms</td>
+            <td><button onclick="window.location.href = 'update_students.html';">Edit</button></td>
+            <td><button onclick="window.location.href = 'index.html';">Delete</button></td>
+         </tr>
+         <tr>
+            <td>5</td>
+            <td>Draco</td>
+            <td>Malfoy</td>
+            <td>1</td>
+            <td>Potions</td>
+            <td><button onclick="window.location.href = 'update_students.html';">Edit</button></td>
+            <td><button onclick="window.location.href = 'index.html';">Delete</button></td>
+         </tr>
+         <tr>
+            <td>6</td>
+            <td>Cedric</td>
+            <td>Diggory</td>
+            <td>4</td>
+            <td>Herbology</td>
+            <td><button onclick="window.location.href = 'update_students.html';">Edit</button></td>
+            <td><button onclick="window.location.href = 'index.html';">Delete</button></td>
+         </tr>
+         <tr>
+            <td>6</td>
+            <td>Cedric</td>
+            <td>Diggory</td>
+            <td>2</td>
+            <td>Defense Against the Dark Arts</td>
+            <td><button onclick="window.location.href = 'update_students.html';">Edit</button></td>
+            <td><button onclick="window.location.href = 'index.html';">Delete</button></td>
+         </tr>
+   
+   
+      </tbody>
+   </table>
    <form action="http://web.engr.oregonstate.edu/~zhangluy/tools/class-content/form_tests/check_request.php" method="post" class = "search">
       <fieldset>
          <legend>Search For a Hogwarts Student</legend>
@@ -53,9 +165,9 @@
             <br />
          </fieldset>
          <input type="submit" value="Submit Search Information" />
-
-      </fieldset>
+    </fieldset>
    </form>
-   
+
+
 </body>
 </html>
