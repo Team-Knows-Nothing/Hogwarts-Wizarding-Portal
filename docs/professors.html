@@ -24,101 +24,103 @@
     <h1><strong><center>Hogwarts Professors</center></strong></h1>
 </head>
 <body>
-         <form>
-            <fieldset>
-               <legend>Add New Professor Entry</legend>
-         
-               <fieldset>
-                  <label>First Name:
-                     <input type="text" name="first_name_input" size="30" maxlength="100">
-                  </label>
-                  <br />
-               </fieldset>
-               <br />
-         
-               <fieldset>
-                  <label>Last Name:
-                     <input type="text" name="last_name_input" size="30" maxlength="100">
-                  </label>
-                  <br />
-               </fieldset>
-               <br />
-               <fieldset>
-                  <label>House:
-                     <input type="text" name="house_input" size="30" maxlength="100">
-                  </label>
-                  <br />
-               </fieldset>
-               <br />
-               <button type="submit" formaction="professors.html">Submit</button>
-            </fieldset>
-         
-         </form>
-         <br/>
-      <table>
-         <caption></caption>
-         <thead>
-            <tr>
-               <th><b>First Name</b></th>
-               <th><b>Last Name</b></th>
-               <th><b>House (Alma Mater)</b></th>
-               <th colspan="2"><b>Modify</b></th>
-            </tr>
-         </thead>
-         <tbody>
-            <tr>
-               <td>Severus</td>
-               <td>Snape</td>
-               <td>Slytherin</td>
-               <td><button onclick="window.location.href = 'update_professors.html';">Edit</button></td>
-               <td><button onclick="window.location.href = 'professors.html';">Delete</button></td>
-               
-            </tr>
-            <tr>
-               <td>Alastor</td>
-               <td>Moody</td>
-               <td>NULL</td>
-               <td><button onclick="window.location.href = 'update_professors.html';">Edit</button></td>
-               <td><button onclick="window.location.href = 'professors.html';">Delete</button></td>
-            </tr>
-            <tr>
-               <td>Remus</td>
-               <td>Lupin</td>
-               <td>Gryffindor</td>
-               <td><button onclick="window.location.href = 'update_professors.html';">Edit</button></td>
-               <td><button onclick="window.location.href = 'professors.html';">Delete</button></td>
-            </tr>
-            <tr>
-               <td>Minerva</td>
-               <td>McGonagall</td>
-               <td>Gryffindor</td>
-               <td><button onclick="window.location.href = 'update_professors.html';">Edit</button></td>
-               <td><button onclick="window.location.href = 'professors.html';">Delete</button></td>
-            </tr>
-            <tr>
-               <td>Pomona</td>
-               <td>Sprout</td>
-               <td>Hufflepuff</td>
-               <td><button onclick="window.location.href = 'update_professors.html';">Edit</button></td>
-               <td><button onclick="window.location.href = 'professors.html';">Delete</button></td>
-            </tr>
-            <tr>
-               <td>Sybill</td>
-               <td>Trelawney</td>
-               <td>Ravenclaw</td>
-               <td><button onclick="window.location.href = 'update_professors.html';">Edit</button></td>
-               <td><button onclick="window.location.href = 'professors.html';">Delete</button></td>
-            </tr>
-            <tr>
-               <td>Filius</td>
-               <td>Flitwick</td>
-               <td>Ravenclaw</td>
-               <td><button onclick="window.location.href = 'update_professors.html';">Edit</button></td>
-               <td><button onclick="window.location.href = 'update_classes.html';">Delete</button></td>
-            </tr>
-      
-         </tbody>
-      </table>
+   <form>
+      <fieldset>
+         <legend>Add New Professor Entry</legend>
+   
+         <fieldset>
+            <label>First Name:
+               <input type="text" name="first_name_input" size="30" maxlength="100">
+            </label>
+            <br />
+         </fieldset>
+         <br />
+   
+         <fieldset>
+            <label>Last Name:
+               <input type="text" name="last_name_input" size="30" maxlength="100">
+            </label>
+            <br />
+         </fieldset>
+         <br />
+         <fieldset>
+            <label>House:
+               <input type="text" name="house_input" size="30" maxlength="100">
+            </label>
+            <br />
+         </fieldset>
+         <br />
+         <button type="submit" formaction="professors.html">Submit</button>
+      </fieldset>
+   
+   </form>
+   <br/>
+
+   <table>
+      <caption></caption>
+      <thead>
+         <tr>
+            <th><b>Last Name</b></th>
+            <th><b>First Name</b></th>
+            <th><b>House (Alma Mater)</b></th>
+            <th colspan="2"><b>Modify</b></th>
+         </tr>
+      </thead>
+      <tbody>
+         <tr>
+            <td>Flitwick</td>
+            <td>Fillius</td>
+            <td>Ravenclaw</td>
+            <td><button onclick="window.location.href = 'update_professors.html';">Edit</button></td>
+            <td><button onclick="window.location.href = 'update_classes.html';">Delete</button></td>
+         </tr>
+         <tr>
+            <td>Lupin</td>
+            <td>Remus</td>
+            <td>Gryffindor</td>
+            <td><button onclick="window.location.href = 'update_professors.html';">Edit</button></td>
+            <td><button onclick="window.location.href = 'professors.html';">Delete</button></td>
+         </tr>
+         <tr>
+            <td>McGonagall</td>
+            <td>Minerva</td>
+            <td>Gryffindor</td>
+            <td><button onclick="window.location.href = 'update_professors.html';">Edit</button></td>
+            <td><button onclick="window.location.href = 'professors.html';">Delete</button></td>
+         </tr>
+         <tr>
+            <td>Moody</td>
+            <td>Alastor</td>
+            <td>NULL</td>
+            <td><button onclick="window.location.href = 'update_professors.html';">Edit</button></td>
+            <td><button onclick="window.location.href = 'professors.html';">Delete</button></td>
+         </tr>
+         <tr>
+            <td>Severus</td>
+            <td>Snape</td>
+            <td>Slytherin</td>
+            <td><button onclick="window.location.href = 'update_professors.html';">Edit</button></td>
+            <td><button onclick="window.location.href = 'professors.html';">Delete</button></td>
+            
+         </tr>
+         <tr>
+            <td>Sprout</td>
+            <td>Pomona</td>
+            <td>Hufflepuff</td>
+            <td><button onclick="window.location.href = 'update_professors.html';">Edit</button></td>
+            <td><button onclick="window.location.href = 'professors.html';">Delete</button></td>
+         </tr>
+         <tr>
+            <td>Trelawney</td>
+            <td>Sybill</td>
+            <td>Ravenclaw</td>
+            <td><button onclick="window.location.href = 'update_professors.html';">Edit</button></td>
+            <td><button onclick="window.location.href = 'professors.html';">Delete</button></td>
+         </tr>
+
+   
+      </tbody>
+   </table>
    
 </body>
 </html>
