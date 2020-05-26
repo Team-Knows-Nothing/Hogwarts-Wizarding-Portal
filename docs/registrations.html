@@ -24,13 +24,13 @@
     <h1><strong><center>Student Registration</center></strong></h1>
 </head>
 <body>
-      <form>
+      <form id='addregistration' action='/insert_registration' method='POST'>
          <fieldset>
             <legend>Add a Class for a Student</legend>
       
             <fieldset>
                <label>Student ID:
-                  <input type="number" name="class_title_input" size="30" maxlength="100">
+                  <input type="number" name="student_id_input" size="30" maxlength="100">
                </label>
                <br />
             </fieldset>
@@ -38,7 +38,7 @@
       
             <fieldset>
                <label>Class ID:
-                  <input type="text" name="class_credits_input" size="30" maxlength="100">
+                  <input type="text" name="class_id_input" size="30" maxlength="100">
                </label>
                <br />
             </fieldset>
