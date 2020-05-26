@@ -24,7 +24,7 @@ webapp = Flask(__name__)
       
       print('Showing all students in database')
       db_connection = connect_to_database()
-      query = 'SELECT ID, Student_Lname, Student_Fname, Student_Birthdate, Student_Year,(SELECT House_Name FROM Houses WHERE Students.House_ID = Houses.ID) FROM Students ORDER BY `Last Name` ASC;'
+      query = 'SELECT ID, Student_Lname, Student_Fname, Student_Birthdate, Student_Year,(SELECT House_Name FROM Houses WHERE Students.House_ID = Houses.ID) FROM Students ORDER BY Student_Lname ASC;'
       result = execute_query(db_connection, query).fetchall()
       print(result)
       return render_template('index.html', rows=result)
@@ -119,7 +119,7 @@ webapp = Flask(__name__)
       
       print('Showing all Professors in database')
       db_connection = connect_to_database()
-      query = 'SELECT Professor_Lname,Professor_Fname,(SELECT House_Name FROM Houses WHERE Professors.House_ID = Houses.ID)FROM `Professors` ORDER BY `Last Name` ASC;'
+      query = 'SELECT Professor_Lname,Professor_Fname,(SELECT House_Name FROM Houses WHERE Professors.House_ID = Houses.ID)FROM `Professors` ORDER BY `Professor_Lname` ASC;'
       result = execute_query(db_connection, query).fetchall()
       print(result)
       return render_template('Professors.html', rows=result)
@@ -165,7 +165,7 @@ webapp = Flask(__name__)
       
       print('Showing all Classes in database')
       db_connection = connect_to_database()
-      query = 'SELECT ID, Class_Name, Class_Credit, (SELECT Professor_Lname FROM Professors WHERE Classes.Professor_ID = Professors.ID) FROM `Classes` ORDER BY `Class Name` ASC;'
+      query = 'SELECT ID, Class_Name, Class_Credit, (SELECT Professor_Lname FROM Professors WHERE Classes.Professor_ID = Professors.ID) FROM `Classes` ORDER BY `Class_Name` ASC;'
       result = execute_query(db_connection, query).fetchall()
       print(result)
       return render_template('Classes.html', rows=result)
@@ -211,7 +211,7 @@ webapp = Flask(__name__)
       
       print('Showing all Registrations in database')
       db_connection = connect_to_database()
-      query = 'SELECT Student_ID,(SELECT Student_LName FROM Students WHERE Registrations.Student_ID = Students.ID), (SELECT Student_FName FROM Students WHERE Registrations.Student_ID = Students.ID),Class_ID, (SELECT Class_Name FROM Classes WHERE Registrations.Class_ID = Classes.ID)FROM `Registrations` ORDER BY `Last Name` ASC;'
+      query = 'SELECT Student_ID,(SELECT Student_LName FROM Students WHERE Registrations.Student_ID = Students.ID), (SELECT Student_FName FROM Students WHERE Registrations.Student_ID = Students.ID),Class_ID, (SELECT Class_Name FROM Classes WHERE Registrations.Class_ID = Classes.ID)FROM `Registrations` ORDER BY `Student_Lname` ASC;'
       result = execute_query(db_connection, query).fetchall()
       print(result)
       return render_template('Registrations.html', rows=result)
