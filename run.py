@@ -1,8 +1,10 @@
 #this file is used to run your flask-based-database-interacting-website persistently!
 
 #change this line to run the app that you want to run
-#from db_connector.sample import app
-from starter_website.webapp import webapp
+from db_connector.HWP import app
+
+#from starter_website.webapp import webapp
+
 #for example, the above line tells to run the sample db connection app in db_connector/ directory
 
 #then from the commandline run:

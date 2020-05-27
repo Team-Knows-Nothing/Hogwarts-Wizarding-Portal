@@ -24,7 +24,8 @@
     <h1><strong><center>Hogwarts Students</center></strong></h1>
 </head>
 <body>
-   <form>
+
+   <form action = '/index' method = "post">
       <fieldset>
          <legend>Add New Student Entry</legend>
    
@@ -58,13 +59,23 @@
          </fieldset>
          <br />
          <fieldset>
-            <label>House:
-               <input type="text" name="house_input" size="30" maxlength="100">
-            </label>
-            <br />
+            <p> Select a House:
+                <label>
+                    <input type="radio" name="house_input" value="Gryffindor" >Gryffindor
+                </label>
+                <label>
+                    <input type="radio" name="house_input" value="Slytherin" >Slytherin
+                </label>
+                <label>
+                    <input type="radio" name="house_input" value="Ravenclaw" >Ravenclaw
+                </label>
+                <label>
+                    <input type="radio" name="house_input" value="Hufflepuff" >Hufflepuff
+                </label>
+            <br/>
          </fieldset>
          <br />
-         <button type="submit" formaction="index">Submit</button>
+         <input type = "submit" value = "Submit">
       </fieldset>
    </form>
 
