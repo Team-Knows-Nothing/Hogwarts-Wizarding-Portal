@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <!--My Stylesheet-->
+   <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/styles.css') }}" media="screen"/>
+   
+   <title>Registrations Page</title>
+
+   <!--Menu Bar adapted from source:
+   https://www.w3schools.com/howto/howto_js_topnav.asp-->
+   <div class="topnav">
+      <ul>
+         <a href="/Index">Students</a>
+         <a href="/Houses">Houses</a>
+         <a href="/Professors">Professors</a>
+         <a href="/Classes">Classes</a>
+      <a href="/Registrations">Registrations</a>
+      </ul>
+    </div>
+    <br>
+    <h1><strong><center>Student Registration</center></strong></h1>
+</head>
+<body>
+      <form>
+         <fieldset>
+            <legend>Add a Class for a Student</legend>
+      
+            <fieldset>
+               <label>Student ID:
+                  <input type="number" name="class_title_input" size="30" maxlength="100">
+               </label>
+               <br />
+            </fieldset>
+            <br />
+      
+            <fieldset>
+               <label>Class ID:
+                  <input type="text" name="class_credits_input" size="30" maxlength="100">
+               </label>
+               <br />
+            </fieldset>
+            <br />
+            <button type="submit" formaction="registrations.html">Submit</button>
+         </fieldset>
+      </form>
+      <br />
+   <table>
+      <caption></caption>
+      <thead>
+         <tr>
+            <th><b>Student_ID</b></th>
+            <th><b>Last Name</b></th>
+            <th><b>First Name</b></th>
+            <th><b>Class_ID</b></th>
+            <th>Class</th>
+            <th colspan="2"><b>Modify</b></th>
+         </tr>
+      </thead>
+      <tbody>
+         <tr>
+            <td>6</td>
+            <td>Diggory</td>
+            <td>Cedric</td>
+            <td>2</td>
+            <td>Defense Against the Dark Arts</td>
+            <td><button onclick="window.location.href = 'update_students.html';">Edit</button></td>
+            <td><button onclick="window.location.href = 'index.html';">Delete</button></td>
+         </tr>
+         <tr>
+            <td>6</td>
+            <td>Diggory</td>
+            <td>Cedric</td>
+            <td>4</td>
+            <td>Herbology</td>
+            <td><button onclick="window.location.href = 'update_students.html';">Edit</button></td>
+            <td><button onclick="window.location.href = 'index.html';">Delete</button></td>
+         </tr>
+         <tr>
+            <td>2</td>
+            <td>Granger</td>
+            <td>Hermione</td>
+            <td>2</td>
+            <td>Defense Against the Dark Arts</td>
+            <td><button onclick="window.location.href = 'update_students.html';">Edit</button></td>
+            <td><button onclick="window.location.href = 'index.html';">Delete</button></td>
+         </tr>
+         <tr>
+            <td>2</td>
+            <td>Granger</td>
+            <td>Hermione</td>
+            <td>5</td>
+            <td>Charms</td>
+            <td><button onclick="window.location.href = 'update_students.html';">Edit</button></td>
+            <td><button onclick="window.location.href = 'index.html';">Delete</button></td>
+         </tr>
+         <tr>
+            <td>4</td>
+            <td>Lovegood</td>
+            <td>Luna</td>
+            <td>5</td>
+            <td>Charms</td>
+            <td><button onclick="window.location.href = 'update_students.html';">Edit</button></td>
+            <td><button onclick="window.location.href = 'index.html';">Delete</button></td>
+         </tr>
+         <tr>
+            <td>5</td>
+            <td>Malfoy</td>
+            <td>Draco</td>
+            <td>1</td>
+            <td>Potions</td>
+            <td><button onclick="window.location.href = 'update_students.html';">Edit</button></td>
+            <td><button onclick="window.location.href = 'index.html';">Delete</button></td>
+         </tr>
+         <tr>
+            <td>1</td>
+            <td>Potter</td>
+            <td>Harry</td>
+            <td>2</td>
+            <td>Defense Against the Dark Arts</td>
+            <td><button onclick="window.location.href = 'update_students.html';">Edit</button></td>
+            <td><button onclick="window.location.href = 'index.html';">Delete</button></td>
+         </tr>
+         <tr>
+            <td>3</td>
+            <td>Weasley</td>
+            <td>Ronald</td>
+            <td>3</td>
+            <td>Divination</td>
+            <td><button onclick="window.location.href = 'update_students.html';">Edit</button></td>
+            <td><button onclick="window.location.href = 'index.html';">Delete</button></td>
+         </tr>   
+      </tbody>
+   </table>
+
+   <!-- Table populated from database using SELECT -->
+   <table>
+      <caption></caption>
+      <thead>
+         <tr>
+            <th><b>Student_ID</b></th>
+            <th><b>Last Name</b></th>
+            <th><b>First Name</b></th>
+            <th><b>Class_ID</b></th>
+            <th><b>Class</b></th>
+            <th colspan="2"><b>Modify</b></th>
+         </tr>
+      </thead>
+      <tbody>
+         {% for r in rows %}
+         <tr>
+            <td>{{ r[0] }}</td>
+            <td>{{ r[1] }}</td>
+            <td>{{ r[2] }}</td>
+            <td>{{ r[3] }}</td>
+            <td>{{ r[4] }}</td>
+            <td><button onclick="window.location.href = 'update_students.html';">Edit</button></td>
+            <td><button onclick="window.location.href = 'registrations.html';">Delete</button></td>
+         </tr>
+         {% endfor %}  
+
+      </tbody>
+   </table>
+
+
+   <form action="http://web.engr.oregonstate.edu/~zhangluy/tools/class-content/form_tests/check_request.php" method="post" class = "search">
+      <fieldset>
+         <legend>Search For a Hogwarts Student</legend>
+   
+         <fieldset>
+            <label>First Name:
+               <input type="text" name="first_name_input" size="30" maxlength="100">
+            </label>
+            <br />
+         </fieldset>
+         <br />
+   
+         <fieldset>
+            <label>Last Name:
+               <input type="text" name="last_name_input" size="30" maxlength="100">
+            </label>
+            <br />
+         </fieldset>
+         <br />
+         <p>- OR -</p>
+         
+         <br/>
+         <fieldset>
+            <label>Student ID:
+               <input type="number" name="student_ID_input" size="30" maxlength="100">
+            </label>
+            <br />
+         </fieldset>
+         <input type="submit" value="Submit Search Information" />
+    </fieldset>
+   </form>
+
+
+</body>
+</html>

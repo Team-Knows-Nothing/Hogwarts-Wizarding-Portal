@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <!--My Stylesheet-->
+   <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/styles.css') }}" media="screen"/>
+   
+   <title>Students Page</title>
+
+   <!--Menu Bar adapted from source:
+   https://www.w3schools.com/howto/howto_js_topnav.asp-->
+   <div class="topnav">
+      <ul>
+         <a href="/Index">Students</a>
+         <a href="/Houses">Houses</a>
+         <a href="/Professors">Professors</a>
+         <a href="/Classes">Classes</a>
+      <a href="/Registrations">Registrations</a>
+      </ul>
+    </div>
+    <br>
+    <h1><strong><center>Hogwarts Students</center></strong></h1>
+</head>
+<body>
+   <form>
+      <fieldset>
+         <legend>Add New Student Entry</legend>
+   
+         <fieldset>
+            <label>First Name:
+               <input type="text" name="first_name_input" size="30" maxlength="100">
+            </label>
+            <br />
+         </fieldset>
+         <br />
+   
+         <fieldset>
+            <label>Last Name:
+               <input type="text" name="last_name_input" size="30" maxlength="100">
+            </label>
+            <br />
+         </fieldset>
+         <br />
+         <fieldset>
+            <label>Birthdate:
+               <input type="date" name="birthdate_input" size="30" maxlength="100">
+            </label>
+            <br />
+         </fieldset>
+         <br />
+         <fieldset>
+            <label>Year:
+               <input type="number" name="year_input" size="30" maxlength="100">
+            </label>
+            <br />
+         </fieldset>
+         <br />
+         <fieldset>
+            <label>House:
+               <input type="text" name="house_input" size="30" maxlength="100">
+            </label>
+            <br />
+         </fieldset>
+         <br />
+         <button type="submit" formaction="index.html">Submit</button>
+      </fieldset>
+   </form>
+
+      <br/>
+   <table>
+      <caption></caption>
+      <thead>
+         <tr>
+            <th><b>Student ID</b></th>
+            <th><b>Last Name</b></th>
+            <th><b>First Name</b></th>
+            <th>Birthdate</th>
+            <th><b>Year</b></th>
+            <th><b>House</b></th>
+            <th colspan ="2"><b>Modify</b></th>
+         </tr>
+      </thead>
+      <tbody>
+         <tr>
+            <td>6</td>
+            <td>Diggory</td>
+            <td>Cedric</td>
+            <td>1977-10-30</td>
+            <td>4</td>
+            <td>Hufflepuff</td>
+            <td><button onclick="window.location.href = 'update_students.html';">Edit</button></td>
+            <td><button onclick="window.location.href = 'index.html';">Delete</button></td>
+         </tr>
+         <tr>
+            <td>2</td>
+            <td>Granger</td>
+            <td>Hermione</td>
+            <td>1979-09-19</td>
+            <td>3</td>
+            <td>Gryffindor</td>
+            <td><button onclick="window.location.href = 'update_students.html';">Edit</button></td>
+            <td><button onclick="window.location.href = 'index.html';">Delete</button></td>
+         </tr>
+         <tr>
+            <td>4</td>
+            <td>Lovegood</td>
+            <td>Luna</td>
+            <td>1981-02-13</td>
+            <td>3</td>
+            <td>Ravenclaw</td>
+            <td><button onclick="window.location.href = 'update_students.html';">Edit</button></td>
+            <td><button onclick="window.location.href = 'index.html';">Delete</button></td>
+         </tr>
+         <tr>
+            <td>5</td>
+            <td>Malfoy</td>
+            <td>Draco</td>
+            <td>1980-06-05</td>
+            <td>3</td>
+            <td>Slytherin</td>
+            <td><button onclick="window.location.href = 'update_students.html';">Edit</button></td>
+            <td><button onclick="window.location.href = 'index.html';">Delete</button></td>
+         </tr>
+         <tr>
+            <td>1</td>
+            <td>Potter</td>
+            <td>Harry</td>
+            <td>1980-07-31</td>
+            <td>3</td>
+            <td>Gryffindor</td>
+         <td><button onclick="window.location.href = 'update_students.html';">Edit</button></td>
+         <td><button onclick="window.location.href = 'index.html';">Delete</button></td>
+         </tr>
+         <tr>
+            <td>3</td>
+            <td>Weasley</td>
+            <td>Ronald</td>
+            <td>1980-03-01</td>
+            <td>3</td>
+            <td>Gryffindor</td>
+            <td><button onclick="window.location.href = 'update_students.html';">Edit</button></td>
+            <td><button onclick="window.location.href = 'index.html';">Delete</button></td>
+         </tr>
+   
+
+   
+      </tbody>
+   </table>
+   
+   <!-- Table populated from database using SELECT -->
+   <table>
+      <caption></caption>
+      <thead>
+         <tr>
+            <th><b>Student ID</b></th>
+            <th><b>Last Name</b></th>
+            <th><b>First Name</b></th>
+            <th>Birthdate</th>
+            <th><b>Year</b></th>
+            <th><b>House</b></th>
+            <th colspan ="2"><b>Modify</b></th>
+         </tr>
+      </thead>
+      <tbody>
+         {% for r in rows %}
+         <tr>
+            <td>{{ r[0] }}</td>
+            <td>{{ r[1] }}</td>
+            <td>{{ r[2] }}</td>
+            <td>{{ r[3] }}</td>
+            <td>{{ r[4] }}</td>
+            <td>{{ r[5] }}</td>
+            <td><button onclick="window.location.href = 'update_students.html';">Edit</button></td>
+            <td><button onclick="window.location.href = 'index.html';">Delete</button></td>
+         </tr>
+         {% endfor %}  
+   
+      </tbody>
+   </table>
+
+
+
+</body>
+</html>
