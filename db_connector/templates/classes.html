@@ -24,7 +24,7 @@
     <h1><strong><center>Hogwarts Class Catalog</center></strong></h1>
 </head>
 <body>
-   <form>
+   <form action = '/Classes' method = "post">
       <fieldset>
          <legend>Add New Course Entry</legend>
    
@@ -44,18 +44,18 @@
          </fieldset>
          <br />
          <fieldset>
-            <label>Professor:
-               <input type="text" name="class_professor_input" size="30" maxlength="100">
+            <label>Professor ID:
+               <input type="number" name="class_professor_input" size="30" maxlength="100">
             </label>
             <br />
          </fieldset>
          <br />
-         <button type="submit" formaction="classes">Submit</button>
+         <input type = "submit" value = "Submit">
       </fieldset>
    </form>
    <br/>
    
-   <table>
+<!--    <table>
       <caption></caption>
       <thead>
          <tr>
@@ -108,7 +108,7 @@
             <td><button onclick="window.location.href = 'classes';">Delete</button></td>
          </tr>
       </tbody>
-   </table>
+   </table> -->
 
    <!-- Table populated from database using SELECT -->
    <table>

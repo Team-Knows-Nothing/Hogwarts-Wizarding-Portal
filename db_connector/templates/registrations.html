@@ -24,13 +24,13 @@
     <h1><strong><center>Student Registration</center></strong></h1>
 </head>
 <body>
-      <form>
+      <form action = '/Registrations' method = "post">
          <fieldset>
             <legend>Add a Class for a Student</legend>
       
             <fieldset>
                <label>Student ID:
-                  <input type="number" name="class_title_input" size="30" maxlength="100">
+                  <input type="number" name="student_id_input" size="30" maxlength="100">
                </label>
                <br />
             </fieldset>
@@ -38,16 +38,16 @@
       
             <fieldset>
                <label>Class ID:
-                  <input type="text" name="class_credits_input" size="30" maxlength="100">
+                  <input type="number" name="class_id_input" size="30" maxlength="100">
                </label>
                <br />
             </fieldset>
             <br />
-            <button type="submit" formaction="registrations">Submit</button>
+            <input type = "submit" value = "Submit">
          </fieldset>
       </form>
       <br />
-   <table>
+ <!--   <table>
       <caption></caption>
       <thead>
          <tr>
@@ -133,7 +133,7 @@
             <td><button onclick="window.location.href = 'index';">Delete</button></td>
          </tr>   
       </tbody>
-   </table>
+   </table> -->
 
    <!-- Table populated from database using SELECT -->
    <table>
@@ -164,14 +164,14 @@
       </tbody>
    </table>
 
-
-   <form action="http://web.engr.oregonstate.edu/~zhangluy/tools/class-content/form_tests/check_request.php" method="post" class = "search">
+<!-- 
+   <form action = '/Registrations' method = "post">
       <fieldset>
          <legend>Search For a Hogwarts Student</legend>
    
          <fieldset>
             <label>First Name:
-               <input type="text" name="first_name_input" size="30" maxlength="100">
+               <input type="text" name="first_name_search" size="30" maxlength="100">
             </label>
             <br />
          </fieldset>
@@ -179,7 +179,7 @@
    
          <fieldset>
             <label>Last Name:
-               <input type="text" name="last_name_input" size="30" maxlength="100">
+               <input type="text" name="last_name_search" size="30" maxlength="100">
             </label>
             <br />
          </fieldset>
@@ -189,13 +189,13 @@
          <br/>
          <fieldset>
             <label>Student ID:
-               <input type="number" name="student_ID_input" size="30" maxlength="100">
+               <input type="number" name="student_ID_search" size="30" maxlength="100">
             </label>
             <br />
          </fieldset>
          <input type="submit" value="Submit Search Information" />
     </fieldset>
-   </form>
+   </form> -->
 
 
 </body>

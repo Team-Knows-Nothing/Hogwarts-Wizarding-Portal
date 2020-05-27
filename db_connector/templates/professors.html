@@ -24,7 +24,7 @@
     <h1><strong><center>Hogwarts Professors</center></strong></h1>
 </head>
 <body>
-   <form>
+   <form action = '/Professors' method = "post">
       <fieldset>
          <legend>Add New Professor Entry</legend>
    
@@ -44,19 +44,29 @@
          </fieldset>
          <br />
          <fieldset>
-            <label>House:
-               <input type="text" name="house_input" size="30" maxlength="100">
-            </label>
-            <br />
+            <p> Select a House:
+                <label>
+                    <input type="radio" name="house_input" value="Gryffindor" >Gryffindor
+                </label>
+                <label>
+                    <input type="radio" name="house_input" value="Slytherin" >Slytherin
+                </label>
+                <label>
+                    <input type="radio" name="house_input" value="Ravenclaw" >Ravenclaw
+                </label>
+                <label>
+                    <input type="radio" name="house_input" value="Hufflepuff" >Hufflepuff
+                </label>
+            <br/>
          </fieldset>
          <br />
-         <button type="submit" formaction="professors">Submit</button>
+         <input type = "submit" value = "Submit">
       </fieldset>
    
    </form>
    <br/>
 
-   <table>
+<!--    <table>
       <caption></caption>
       <thead>
          <tr>
@@ -117,16 +127,15 @@
             <td><button onclick="window.location.href = 'update_professors';">Edit</button></td>
             <td><button onclick="window.location.href = 'professors';">Delete</button></td>
          </tr>
-
-   
       </tbody>
-   </table>
+   </table> -->
 
    <!-- Table populated from database using SELECT -->
    <table>
       <caption></caption>
       <thead>
          <tr>
+            <th><b>Professor ID</b></th>
             <th><b>Last Name</b></th>
             <th><b>First Name</b></th>
             <th><b>House (Alma Mater)</b></th>
@@ -139,6 +148,7 @@
             <td>{{ r[0] }}</td>
             <td>{{ r[1] }}</td>
             <td>{{ r[2] }}</td>
+            <td>{{ r[3] }}</td>
             <td><button onclick="window.location.href = 'update_professors';">Edit</button></td>
             <td><button onclick="window.location.href = 'professors';">Delete</button></td>
          </tr>

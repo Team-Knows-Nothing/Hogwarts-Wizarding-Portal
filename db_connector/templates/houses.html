@@ -24,13 +24,13 @@
     <h1><strong><center>Houses of Hogwarts</center></strong></h1>
 </head>
 <body>
-      <form>
+      <form action = '/Houses' method = "post">
          <fieldset>
             <legend>Add New House</legend>
       
             <fieldset>
                <label>House Name:
-                  <input type="text" name="class_title_input" size="30" maxlength="100">
+                  <input type="text" name="house_name_input" size="30" maxlength="100">
                </label>
                <br />
             </fieldset>
@@ -38,31 +38,31 @@
       
             <fieldset>
                <label>House Mascot:
-                  <input type="text" name="class_credits_input" size="30" maxlength="100">
+                  <input type="text" name="house_mascot_input" size="30" maxlength="100">
                </label>
                <br />
             </fieldset>
             <br />
             <fieldset>
                <label>House Founder:
-                  <input type="text" name="class_professor_input" size="30" maxlength="100">
+                  <input type="text" name="house_founder_input" size="30" maxlength="100">
                </label>
                <br />
             </fieldset>
             <br/>
             <fieldset>
                <label>House Head:
-                  <input type="text" name="class_professor_input" size="30" maxlength="100">
+                  <input type="text" name="house_head_input" size="30" maxlength="100">
                </label>
                <br />
             </fieldset>
             <br />
-            <button type="submit" formaction="houses">Submit</button>
+            <input type = "submit" value = "Submit">
          </fieldset>
       </form>
       <br />
 
-      <table>
+<!--       <table>
          <caption></caption>
          <thead>
             <tr>
@@ -109,7 +109,7 @@
 
       
          </tbody>
-      </table>
+      </table> -->
 
    <!-- Table populated from database using SELECT -->
    <table>
