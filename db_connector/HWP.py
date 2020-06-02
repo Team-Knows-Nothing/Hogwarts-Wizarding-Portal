@@ -31,8 +31,6 @@ def show_students():
 			print("\n------- index POST add -----")
 			print("\nAdding a student to the database")
 
-
-
 			# Gather input fields into variables
 			first_name = request.form['first_name_input']
 			last_name = request.form['last_name_input']
@@ -80,30 +78,45 @@ def show_houses():
 	db_connection = connect_to_database()
 	if request.method == 'GET':
 		print('Showing all Houses in database')
-		query = 'SELECT House_Name, House_Mascot, House_Founder, House_Head FROM Houses;'
+		query = 'SELECT House_Name, House_Mascot, House_Founder, House_Head, ID FROM Houses;'
 		result = execute_query(db_connection, query).fetchall()
 		print(result)
 		return render_template('houses.html', rows=result)
 	elif request.method == 'POST':
-		# Print actions to terminal
-		print("Added a House to the database")
+		if request.form['post_type'] == "add":
+			# Print actions to terminal
+			print("\n------- Houses POST add -----")
+			print("Added a House to the database")
 
-		# Gather input fields into variables
-		house_name = request.form['house_name_input']
-		house_mascot = request.form['house_mascot_input']
-		house_founder = request.form['house_founder_input']
-		house_head = request.form['house_head_input']
+			# Gather input fields into variables
+			house_name = request.form['house_name_input']
+			house_mascot = request.form['house_mascot_input']
+			house_founder = request.form['house_founder_input']
+			house_head = request.form['house_head_input']
 
-		# Insert Input variables into database
-		query = 'INSERT INTO Houses (House_Name,House_Mascot,House_Founder,House_Head) VALUES (%s,%s,%s,%s)'
-		data = (house_name,house_mascot,house_founder,house_head)
-		execute_query(db_connection, query, data)
+			# Insert Input variables into database
+			query = 'INSERT INTO Houses (House_Name,House_Mascot,House_Founder,House_Head) VALUES (%s,%s,%s,%s)'
+			data = (house_name,house_mascot,house_founder,house_head)
+			execute_query(db_connection, query, data)
 
-		query = 'SELECT House_Name, House_Mascot, House_Founder, House_Head FROM Houses;'
+
+		elif request.form['post_type'] == "delete":
+			print("\n------- Houses POST delete -----")
+			print("\nDeleting a house from the database")
+
+			# Gather input fields into variable data
+			ID = request.form['entry_id']
+
+			# Construct query, with data
+			query = 'DELETE FROM Houses WHERE ID = %s'
+			data = (ID,)
+			execute_query(db_connection, query, data)
+		
+		# Display table
+		query = 'SELECT House_Name, House_Mascot, House_Founder, House_Head, ID FROM Houses;'
 		result = execute_query(db_connection, query).fetchall()
 		print(result)
 		return render_template('houses.html', rows=result)
-	
 
 # Display (READ/SELECT) Professors in database
 @app.route('/Professors', methods = ['POST', 'GET'])

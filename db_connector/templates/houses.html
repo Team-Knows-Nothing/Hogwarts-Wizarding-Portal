@@ -5,7 +5,7 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
    <!--My Stylesheet-->
-   <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/styles.css') }}" media="screen"/>
+   <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/Styles.css') }}" media="screen"/>
    
    <title>Houses Page</title>
 
@@ -24,7 +24,7 @@
     <h1><strong><center>Houses of Hogwarts</center></strong></h1>
 </head>
 <body>
-      <form action = '/Houses' method = "post">
+      <form action = '/Houses' method = "post" class = addform>
          <fieldset>
             <legend>Add New House</legend>
       
@@ -57,6 +57,7 @@
                <br />
             </fieldset>
             <br />
+            <input type="hidden" value="add" name="post_type" >
             <input type = "submit" value = "Submit">
          </fieldset>
       </form>
@@ -131,7 +132,14 @@
             <td>{{ r[2] }}</td>
             <td>{{ r[3] }}</td>
             <td><button onclick="window.location.href = 'update_houses';">Edit</button></td>
-            <td><button onclick="window.location.href = 'houses';">Delete</button></td>
+            <td>
+               <form action="/Houses" method="post">       
+                  <input type="hidden" value={{r[4]}} name="entry_id" >    
+                  <input type="hidden" value="delete" name="post_type" >
+                  <input type="submit" value="Delete" />
+                
+               </form>
+            </td>
          </tr>
          {% endfor %}  
    
