@@ -30,38 +30,51 @@
          <legend>Add New Student Entry</legend>
    
          <fieldset>
-            <label>First Name:
-               <input type="text" name="first_name_input" size="30" maxlength="100">
+            <label>*First Name:
+               <input type="text" name="first_name_input" size="30" maxlength="100" required>
             </label>
             <br />
          </fieldset>
          <br />
    
          <fieldset>
-            <label>Last Name:
-               <input type="text" name="last_name_input" size="30" maxlength="100">
+            <label>*Last Name:
+               <input type="text" name="last_name_input" size="30" maxlength="100" required>
             </label>
             <br />
          </fieldset>
          <br />
          <fieldset>
-            <label>Birthdate:
-               <input type="date" name="birthdate_input" size="30" maxlength="100">
+            <label>*Birthdate:
+               <input type="date" name="birthdate_input" size="30" maxlength="100" required>
             </label>
             <br />
          </fieldset>
          <br />
-         <fieldset>
-            <label>Year:
-               <input type="number" name="year_input" size="30" maxlength="100">
+<!--          <fieldset>
+            <label>*Year:
+               <input type="number" name="year_input" size="30" maxlength="100" required>
             </label>
             <br />
          </fieldset>
-         <br />
+         <br /> -->
          <fieldset>
-            <p> Select a House:
+              <label for="year_input">*Student Year:</label>
+              <select id="year_input" name="year_input" required>
+                <option value= 1 >1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+              </select>
+         </fieldset>
+         <br/>
+<!--          <fieldset>
+            <p> *Select a House:
                 <label>
-                    <input type="radio" name="house_input" value="Gryffindor" >Gryffindor
+                    <input type="radio" name="house_input" value="Gryffindor" required>Gryffindor
                 </label>
                 <label>
                     <input type="radio" name="house_input" value="Slytherin" >Slytherin
@@ -74,6 +87,17 @@
                 </label>
             <br/>
          </fieldset>
+         <br/> -->
+         <fieldset>
+              <label for="house_input">*House:</label>
+              <select id="house_input" name="house_input" required>
+                <option value="Gryffindor">Gryffindor</option>
+                <option value="Slytherin">Slytherin</option>
+                <option value="Ravenclaw">Ravenclaw</option>
+                <option value="Hufflepuff">Hufflepuff</option>
+              </select>
+         </fieldset>
+         <p> <i>* Indicates a Required Field </i> </p>
          <br />
 
          <input type="hidden" value="add" name="post_type" >

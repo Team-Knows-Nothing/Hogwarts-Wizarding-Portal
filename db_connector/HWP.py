@@ -148,10 +148,12 @@ def show_professors():
 				house = 3
 			elif house == "Ravenclaw":
 				house = 4
+			elif house == "None":
+				house = None
 
 			# Insert Input variables into database
 			query = 'INSERT INTO Professors (Professor_Fname,Professor_Lname,House_ID) VALUES (%s,%s,%s)'
-			data = (last_name,first_name,house)
+			data = (first_name,last_name,house)
 			execute_query(db_connection, query, data)
 
 		if request.form['post_type'] == "delete":

@@ -29,21 +29,21 @@
          <legend>Add New Professor Entry</legend>
    
          <fieldset>
-            <label>First Name:
-               <input type="text" name="first_name_input" size="30" maxlength="100">
+            <label>*First Name:
+               <input type="text" name="first_name_input" size="30" maxlength="100" required>
             </label>
             <br />
          </fieldset>
          <br />
    
          <fieldset>
-            <label>Last Name:
-               <input type="text" name="last_name_input" size="30" maxlength="100">
+            <label>*Last Name:
+               <input type="text" name="last_name_input" size="30" maxlength="100" required>
             </label>
             <br />
          </fieldset>
          <br />
-         <fieldset>
+<!--          <fieldset>
             <p> Select a House:
                 <label>
                     <input type="radio" name="house_input" value="Gryffindor" >Gryffindor
@@ -59,6 +59,18 @@
                 </label>
             <br/>
          </fieldset>
+         <br /> -->
+         <fieldset>
+              <label for="house_input">House:</label>
+              <select id="house_input" name="house_input" required>
+               <option value="None">No House</option>
+                <option value="Gryffindor">Gryffindor</option>
+                <option value="Slytherin">Slytherin</option>
+                <option value="Ravenclaw">Ravenclaw</option>
+                <option value="Hufflepuff">Hufflepuff</option>
+              </select>
+         </fieldset>
+         <p> <i>* Indicates a Required Field </i> </p>
          <br />
          <input type="hidden" value="add" name="post_type" >
          <input type = "submit" value = "Submit">
