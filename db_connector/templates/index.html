@@ -5,7 +5,7 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
    <!--My Stylesheet-->
-   <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/styles.css') }}" media="screen"/>
+   <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/Styles.css') }}" media="screen"/>
    
    <title>Students Page</title>
 
@@ -25,7 +25,7 @@
 </head>
 <body>
 
-   <form action = '/index' method = "post">
+   <form action = '/index' method = "post" class = addform>
       <fieldset>
          <legend>Add New Student Entry</legend>
    
@@ -75,6 +75,8 @@
             <br/>
          </fieldset>
          <br />
+
+         <input type="hidden" value="add" name="post_type" >
          <input type = "submit" value = "Submit">
       </fieldset>
    </form>
@@ -181,7 +183,14 @@
             <td>{{ r[4] }}</td>
             <td>{{ r[5] }}</td>
             <td><button onclick="window.location.href = 'update_students';">Edit</button></td>
-            <td><button onclick="window.location.href = 'index';">Delete</button></td>
+            <td>
+               <form action="/index" method="post">       
+                  <input type="hidden" value={{r[0]}} name="entry_id" >    
+                  <input type="hidden" value="delete" name="post_type" >
+                  <input type="submit" value="Delete" />
+                
+               </form>
+            </td>
          </tr>
          {% endfor %}  
    

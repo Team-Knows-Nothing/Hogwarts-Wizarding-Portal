@@ -20,35 +20,53 @@ def index():
 def show_students():
 	db_connection = connect_to_database()
 	if request.method == 'GET':
-		print("Executing a sample query on the database using the credentials from db_credentials.py")
+		print("\n------- index GET -----")
+		print("\nExecuting a sample query on the database using the credentials from db_credentials.py")
 		query = 'SELECT ID, Student_Lname, Student_Fname, Student_Birthdate, Student_Year,(SELECT House_Name FROM Houses WHERE Students.House_ID = Houses.ID) FROM Students ORDER BY `Student_Lname` ASC;'
 		result = execute_query(db_connection, query).fetchall()
-		print("GET FOR INDEX PAGE",result)
+		print("\nTable select Result:\n",result)
 		return render_template('index.html', rows=result)
 	elif request.method == 'POST':
-		# Print actions to terminal
-		print("Adding a student to the database")
+		if request.form['post_type'] == "add":
+			print("\n------- index POST add -----")
+			print("\nAdding a student to the database")
 
-		# Gather input fields into variables
-		first_name = request.form['first_name_input']
-		last_name = request.form['last_name_input']
-		birthdate = request.form['birthdate_input']
-		year = request.form['year_input']
-		house = request.form['house_input']
 
-		if house == "Gryffindor":
-			house = 1
-		elif house == "Slytherin":
-			house = 2
-		elif house == "Hufflepuff":
-			house = 3
-		elif house == "Ravenclaw":
-			house = 4
 
-		# Insert Input variables into database
-		query = 'INSERT INTO Students (Student_Fname,Student_Lname,Student_Birthdate,Student_Year,House_ID) VALUES(%s,%s,%s,%s,%s)'
-		data = (first_name,last_name,birthdate,year,house)
-		execute_query(db_connection, query, data)
+			# Gather input fields into variables
+			first_name = request.form['first_name_input']
+			last_name = request.form['last_name_input']
+			birthdate = request.form['birthdate_input']
+			year = request.form['year_input']
+			house = request.form['house_input']
+
+			if house == "Gryffindor":
+				house = 1
+			elif house == "Slytherin":
+				house = 2
+			elif house == "Hufflepuff":
+				house = 3
+			elif house == "Ravenclaw":
+				house = 4
+
+			# Construct query, payload
+			query = 'INSERT INTO Students (Student_Fname,Student_Lname,Student_Birthdate,Student_Year,House_ID) VALUES(%s,%s,%s,%s,%s)'
+			data = (first_name,last_name,birthdate,year,house)
+			execute_query(db_connection, query, data)
+
+		elif request.form['post_type'] == "delete":
+			print("\n------- index POST delete -----")
+			print("\nDeleting a student from the database")
+
+			# Gather input fields into variable data
+			ID = request.form['entry_id']
+
+			# Construct query, with data
+			query = 'DELETE FROM Students WHERE ID = %s'
+			data = (ID,)
+			execute_query(db_connection, query, data)
+
+
 
 		query = 'SELECT ID, Student_Lname, Student_Fname, Student_Birthdate, Student_Year,(SELECT House_Name FROM Houses WHERE Students.House_ID = Houses.ID) FROM Students ORDER BY `Student_Lname` ASC;'
 		result = execute_query(db_connection, query).fetchall()

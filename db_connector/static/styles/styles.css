@@ -33,7 +33,7 @@ body {
    border: 30px solid maroon;
  }
 
-form { 
+.addform { 
    text-align: center;
    margin-left: auto;
    margin-right: auto; 
