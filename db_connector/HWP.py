@@ -229,18 +229,33 @@ def show_registrations():
 		print(result)
 		return render_template('registrations.html', rows=result)
 	elif request.method == 'POST':	
-		# Print actions to terminal
-		print("Added a registration to the database")
+		if request.form['post_type'] == "add":
+			# Print actions to terminal
+			print("\n------- Registrations POST add -----")
+			print("Added a registration to the database")
 
-		# Gather input fields into variables
-		student_id = request.form['student_id_input']
-		class_id = request.form['class_id_input']
+			# Gather input fields into variables
+			student_id = request.form['student_id_input']
+			class_id = request.form['class_id_input']
 
-		# Insert Input variables into database
-		query = 'INSERT INTO Registrations (Student_ID, Class_ID)  VALUES (%s,%s)'
-		data = (student_id,class_id)
-		execute_query(db_connection, query, data)
+			# Insert Input variables into database
+			query = 'INSERT INTO Registrations (Student_ID, Class_ID)  VALUES (%s,%s)'
+			data = (student_id,class_id)
+			execute_query(db_connection, query, data)
+		if request.form['post_type'] == "delete":
+			print("\n------- Registrations POST delete -----")
+			print("\nDeleting a registration from the database")
 
+			# Gather input fields into variable data
+			registration_student_id = request.form['registration_student_id']
+			registration_class_id = request.form['registration_class_id']
+
+			# Construct query, with data
+			query = 'DELETE FROM Registrations WHERE Student_ID = %s AND Class_ID = %s'
+			data = (registration_student_id, registration_class_id)
+			execute_query(db_connection, query, data)
+
+		# Display Table
 		query = 'SELECT Student_ID,(SELECT Student_LName FROM Students WHERE Registrations.Student_ID = Students.ID) AS `Last Name` , (SELECT Student_FName FROM Students WHERE Registrations.Student_ID = Students.ID) AS `First Name` ,Class_ID, (SELECT Class_Name FROM Classes WHERE Registrations.Class_ID = Classes.ID) FROM `Registrations` ORDER BY `Last Name` ASC;'
 		result = execute_query(db_connection, query).fetchall()
 		print(result)

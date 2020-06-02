@@ -5,7 +5,7 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
    <!--My Stylesheet-->
-   <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/styles.css') }}" media="screen"/>
+   <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/Styles.css') }}" media="screen"/>
    
    <title>Registrations Page</title>
 
@@ -24,7 +24,7 @@
     <h1><strong><center>Student Registration</center></strong></h1>
 </head>
 <body>
-      <form action = '/Registrations' method = "post">
+      <form action = '/Registrations' method = "post" class = addform>
          <fieldset>
             <legend>Add a Class for a Student</legend>
       
@@ -43,6 +43,7 @@
                <br />
             </fieldset>
             <br />
+            <input type="hidden" value="add" name="post_type" >
             <input type = "submit" value = "Submit">
          </fieldset>
       </form>
@@ -157,7 +158,14 @@
             <td>{{ r[3] }}</td>
             <td>{{ r[4] }}</td>
             <td><button onclick="window.location.href = 'update_students';">Edit</button></td>
-            <td><button onclick="window.location.href = 'registrations';">Delete</button></td>
+            <td>
+               <form action="/Registrations" method="post"> 
+                  <input type="hidden" value={{r[0]}} name="registration_student_id" >   
+                  <input type="hidden" value={{r[3]}} name="registration_class_id" >   
+                  <input type="hidden" value="delete" name="post_type" >
+                  <input type="submit" value="Delete" />
+               </form>
+            </td>
          </tr>
          {% endfor %}  
 
