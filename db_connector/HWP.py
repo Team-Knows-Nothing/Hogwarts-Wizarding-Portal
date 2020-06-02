@@ -183,19 +183,34 @@ def show_classes():
 		print(result)
 		return render_template('classes.html', rows=result)
 	elif request.method == 'POST':
-		# Print actions to terminal
-		print("Added a class to the database")
+		if request.form['post_type'] == "add":
+			# Print actions to terminal
+			print("\n------- Classes POST delete -----")
+			print("Added a class to the database")
 
-		# Gather input fields into variables
-		class_title = request.form['class_title_input']
-		class_credits = request.form['class_credits_input']
-		professor = request.form['class_professor_input']
+			# Gather input fields into variables
+			class_title = request.form['class_title_input']
+			class_credits = request.form['class_credits_input']
+			professor = request.form['class_professor_input']
 
-		# Insert Input variables into database
-		query = 'INSERT INTO Classes (Class_Name,Class_Credit,Professor_ID) VALUES (%s,%s,%s)'
-		data = (class_title,class_credits,professor)
-		execute_query(db_connection, query, data)
+			# Insert Input variables into database
+			query = 'INSERT INTO Classes (Class_Name,Class_Credit,Professor_ID) VALUES (%s,%s,%s)'
+			data = (class_title,class_credits,professor)
+			execute_query(db_connection, query, data)
+		
+		if request.form['post_type'] == "delete":
+			print("\n------- Classes POST delete -----")
+			print("\nDeleting a class from the database")
 
+			# Gather input fields into variable data
+			ID = request.form['entry_id']
+
+			# Construct query, with data
+			query = 'DELETE FROM Classes WHERE ID = %s'
+			data = (ID,)
+			execute_query(db_connection, query, data)
+
+		# Display Table
 		query = 'SELECT ID, Class_Name, Class_Credit, (SELECT Professor_Lname FROM Professors WHERE Classes.Professor_ID = Professors.ID) FROM `Classes` ORDER BY `Class_Name` ASC;'
 		result = execute_query(db_connection, query).fetchall()
 		print(result)
