@@ -146,7 +146,7 @@
             <th><b>First Name</b></th>
             <th><b>Class_ID</b></th>
             <th><b>Class</b></th>
-            <th colspan="2"><b>Modify</b></th>
+            <th><b>Modify</b></th>
          </tr>
       </thead>
       <tbody>
@@ -157,7 +157,6 @@
             <td>{{ r[2] }}</td>
             <td>{{ r[3] }}</td>
             <td>{{ r[4] }}</td>
-            <td><button onclick="window.location.href = 'update_students';">Edit</button></td>
             <td>
                <form action="/Registrations" method="post"> 
                   <input type="hidden" value={{r[0]}} name="registration_student_id" >   

@@ -43,23 +43,7 @@
             <br />
          </fieldset>
          <br />
-<!--          <fieldset>
-            <p> Select a House:
-                <label>
-                    <input type="radio" name="house_input" value="Gryffindor" >Gryffindor
-                </label>
-                <label>
-                    <input type="radio" name="house_input" value="Slytherin" >Slytherin
-                </label>
-                <label>
-                    <input type="radio" name="house_input" value="Ravenclaw" >Ravenclaw
-                </label>
-                <label>
-                    <input type="radio" name="house_input" value="Hufflepuff" >Hufflepuff
-                </label>
-            <br/>
-         </fieldset>
-         <br /> -->
+
          <fieldset>
               <label for="house_input">House:</label>
               <select id="house_input" name="house_input" required>
@@ -162,7 +146,7 @@
             <td>{{ r[1] }}</td>
             <td>{{ r[2] }}</td>
             <td>{{ r[3] }}</td>
-            <td><button onclick="window.location.href = 'update_professors';">Edit</button></td>
+            <td><button onclick= window.location.href="/update_professors/{{ r[0] }}">Update</button></td>
             <td>
                <form action="/Professors" method="post">       
                   <input type="hidden" value={{r[0]}} name="entry_id" >    

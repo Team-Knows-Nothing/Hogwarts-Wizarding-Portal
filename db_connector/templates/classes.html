@@ -130,7 +130,7 @@
             <td>{{ r[1] }}</td>
             <td>{{ r[2] }}</td>
             <td>{{ r[3] }}</td>
-            <td><button onclick="window.location.href = 'update_classes';">Edit</button></td>
+            <td><button onclick= window.location.href="/update_classes/{{ r[0] }}">Update</button></td>
             <td>
                <form action="/Classes" method="post">       
                   <input type="hidden" value={{r[0]}} name="entry_id" >    

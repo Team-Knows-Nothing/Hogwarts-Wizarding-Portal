@@ -5,7 +5,7 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
    <!--My Stylesheet-->
-   <link rel="stylesheet" type="text/css" href="./css/styles.css" media="screen"/>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/Styles.css') }}" media="screen"/>
    
    <title>Student Update Page</title>
 
@@ -13,61 +13,71 @@
    https://www.w3schools.com/howto/howto_js_topnav.asp-->
    <div class="topnav">
       <ul>
-      <a class="active" href="index.html">Students</a>
-      <a href="houses.html">Houses</a>
-      <a href="professors.html">Professors</a>
-      <a href="classes.html">Classes</a>
-      <a href="registrations.html">Registrations</a>
+         <a href="/index">Students</a>
+         <a href="/Houses">Houses</a>
+         <a href="/Professors">Professors</a>
+         <a href="/Classes">Classes</a>
+         <a href="/Registrations">Registrations</a>
       </ul>
     </div>
     <br>
     <h1><strong><center>Update Student</center></strong></h1>
 </head>
 <body>
-            <form class="edit">
-               <fieldset>
-                  <legend>Update Students Data</legend>
-            
-                  <fieldset>
-                     <label>First Name:
-                        <input type="text" name="first_name_input" size="30" maxlength="100">
-                     </label>
-                     <br />
-                  </fieldset>
-                  <br />
-            
-                  <fieldset>
-                     <label>Last Name:
-                        <input type="text" name="last_name_input" size="30" maxlength="100">
-                     </label>
-                     <br />
-                  </fieldset>
-                  <br />
-                  <fieldset>
-                     <label>Birthdate:
-                        <input type="date" name="birthdate_input" size="30" maxlength="100">
-                     </label>
-                     <br />
-                  </fieldset>
-                  <br />
-                  <fieldset>
-                     <label>Year:
-                        <input type="number" name="year_input" size="30" maxlength="100">
-                     </label>
-                     <br />
-                  </fieldset>
-                  <br />
-                  <fieldset>
-                     <label>House:
-                        <input type="text" name="house_input" size="30" maxlength="100">
-                     </label>
-                     <br />
-                  </fieldset>
-                  <br />
-                  <button type="submit" formaction="index.html">Submit</button>
-               </fieldset>
-         </form>
-               
+
+   <form class="edit" action ='/update_students/{{ student[0] }}' method = "post">
+      <fieldset>
+         <legend>Update Students Data</legend>
+         <fieldset>
+            <label>*First Name:
+               <input type="text" name="first_name_input" size="30" maxlength="100" value = '{{ student[1] }}' required>
+            </label>
+            <br />
+         </fieldset>
+         <br />
+         <fieldset>
+            <label>*Last Name:
+               <input type="text" name="last_name_input" size="30" maxlength="100" value = '{{ student[2] }}' required>
+            </label>
+            <br />
+         </fieldset>
+         <br />
+         <fieldset>
+            <label>*Birthdate:
+               <input type="date" name="birthdate_input" size="30" maxlength="100" value = '{{ student[3] }}' required>
+            </label>
+            <br />
+         </fieldset>
+         <br />
+         <fieldset>
+                 <label for="year_input">*Student Year:</label>
+                 <select id="year_input" name="year_input" required>
+                   <option value= 1 >1</option>
+                   <option value="2">2</option>
+                   <option value="3">3</option>
+                   <option value="4">4</option>
+                   <option value="5">5</option>
+                   <option value="6">6</option>
+                   <option value="7">7</option>
+                 </select>
+         </fieldset>
+         <br />
+         <fieldset>
+            <label>
+                 <label for="house_input">*House:</label>
+                 <select id="house_input" name="house_input" required>
+                   <option value="Gryffindor">Gryffindor</option>
+                   <option value="Slytherin">Slytherin</option>
+                   <option value="Ravenclaw">Ravenclaw</option>
+                   <option value="Hufflepuff">Hufflepuff</option>
+                 </select>
+            </label>
+            <br />
+         </fieldset>
+         <br />
+         <button type="submit" value='Submit'>Submit</button> <!---formaction="index.html"-->
+      </fieldset>
+   </form>
    
 </body>
 </html>

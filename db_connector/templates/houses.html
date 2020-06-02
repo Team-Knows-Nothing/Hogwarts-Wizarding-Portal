@@ -131,7 +131,7 @@
             <td>{{ r[1] }}</td>
             <td>{{ r[2] }}</td>
             <td>{{ r[3] }}</td>
-            <td><button onclick="window.location.href = 'update_houses';">Edit</button></td>
+            <td><button onclick= window.location.href="/update_houses/{{ r[4] }}">Update</button></td>
             <td>
                <form action="/Houses" method="post">       
                   <input type="hidden" value={{r[4]}} name="entry_id" >    

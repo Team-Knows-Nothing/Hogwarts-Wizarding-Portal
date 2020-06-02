@@ -51,13 +51,7 @@
             <br />
          </fieldset>
          <br />
-<!--          <fieldset>
-            <label>*Year:
-               <input type="number" name="year_input" size="30" maxlength="100" required>
-            </label>
-            <br />
-         </fieldset>
-         <br /> -->
+
          <fieldset>
               <label for="year_input">*Student Year:</label>
               <select id="year_input" name="year_input" required>
@@ -71,23 +65,7 @@
               </select>
          </fieldset>
          <br/>
-<!--          <fieldset>
-            <p> *Select a House:
-                <label>
-                    <input type="radio" name="house_input" value="Gryffindor" required>Gryffindor
-                </label>
-                <label>
-                    <input type="radio" name="house_input" value="Slytherin" >Slytherin
-                </label>
-                <label>
-                    <input type="radio" name="house_input" value="Ravenclaw" >Ravenclaw
-                </label>
-                <label>
-                    <input type="radio" name="house_input" value="Hufflepuff" >Hufflepuff
-                </label>
-            <br/>
-         </fieldset>
-         <br/> -->
+
          <fieldset>
               <label for="house_input">*House:</label>
               <select id="house_input" name="house_input" required>
@@ -206,7 +184,7 @@
             <td>{{ r[3] }}</td>
             <td>{{ r[4] }}</td>
             <td>{{ r[5] }}</td>
-            <td><button onclick="window.location.href = 'update_students';">Edit</button></td>
+           <td><button onclick= window.location.href="/update_students/{{ r[0] }}">Update</button></td>
             <td>
                <form action="/index" method="post">       
                   <input type="hidden" value={{r[0]}} name="entry_id" >    
