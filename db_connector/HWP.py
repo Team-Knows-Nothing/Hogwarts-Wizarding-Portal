@@ -130,28 +130,43 @@ def show_professors():
 		print(result)
 		return render_template('professors.html', rows=result)
 	elif request.method == 'POST':
-		# Print actions to terminal
-		print("Adding a professor to the database")
+		if request.form['post_type'] == "add":
+			# Print actions to terminal
+			print("\n------- Professors POST add -----")
+			print("Adding a professor to the database")
 
-		# Gather input fields into variables
-		last_name = request.form['last_name_input']
-		first_name = request.form['first_name_input']
-		house = request.form['house_input']
+			# Gather input fields into variables
+			last_name = request.form['last_name_input']
+			first_name = request.form['first_name_input']
+			house = request.form['house_input']
 
-		if house == "Gryffindor":
-			house = 1
-		elif house == "Slytherin":
-			house = 2
-		elif house == "Hufflepuff":
-			house = 3
-		elif house == "Ravenclaw":
-			house = 4
+			if house == "Gryffindor":
+				house = 1
+			elif house == "Slytherin":
+				house = 2
+			elif house == "Hufflepuff":
+				house = 3
+			elif house == "Ravenclaw":
+				house = 4
 
-		# Insert Input variables into database
-		query = 'INSERT INTO Professors (Professor_Fname,Professor_Lname,House_ID) VALUES (%s,%s,%s)'
-		data = (last_name,first_name,house)
-		execute_query(db_connection, query, data)
+			# Insert Input variables into database
+			query = 'INSERT INTO Professors (Professor_Fname,Professor_Lname,House_ID) VALUES (%s,%s,%s)'
+			data = (last_name,first_name,house)
+			execute_query(db_connection, query, data)
 
+		if request.form['post_type'] == "delete":
+			print("\n------- Professors POST delete -----")
+			print("\nDeleting a house from the database")
+
+			# Gather input fields into variable data
+			ID = request.form['entry_id']
+
+			# Construct query, with data
+			query = 'DELETE FROM Professors WHERE ID = %s'
+			data = (ID,)
+			execute_query(db_connection, query, data)
+
+		# Display Table
 		query = 'SELECT ID, Professor_Lname,Professor_Fname,(SELECT House_Name FROM Houses WHERE Professors.House_ID = Houses.ID)FROM `Professors` ORDER BY `Professor_Lname` ASC;'
 		result = execute_query(db_connection, query).fetchall()
 		print(result)

@@ -5,7 +5,7 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
    <!--My Stylesheet-->
-   <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/styles.css') }}" media="screen"/>
+   <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/Styles.css') }}" media="screen"/>
    
    <title>Professors Page</title>
 
@@ -24,7 +24,7 @@
     <h1><strong><center>Hogwarts Professors</center></strong></h1>
 </head>
 <body>
-   <form action = '/Professors' method = "post">
+   <form action = '/Professors' method = "post" class = addform>
       <fieldset>
          <legend>Add New Professor Entry</legend>
    
@@ -60,6 +60,7 @@
             <br/>
          </fieldset>
          <br />
+         <input type="hidden" value="add" name="post_type" >
          <input type = "submit" value = "Submit">
       </fieldset>
    
@@ -150,7 +151,14 @@
             <td>{{ r[2] }}</td>
             <td>{{ r[3] }}</td>
             <td><button onclick="window.location.href = 'update_professors';">Edit</button></td>
-            <td><button onclick="window.location.href = 'professors';">Delete</button></td>
+            <td>
+               <form action="/Professors" method="post">       
+                  <input type="hidden" value={{r[0]}} name="entry_id" >    
+                  <input type="hidden" value="delete" name="post_type" >
+                  <input type="submit" value="Delete" />
+                
+               </form>
+            </td>
          </tr>
          {% endfor %}  
    
