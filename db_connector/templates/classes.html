@@ -38,7 +38,7 @@
    
          <fieldset>
             <label>*Class Credits:
-               <input type="text" name="class_credits_input" size="30" maxlength="100" required>
+               <input type="number" name="class_credits_input" size="30" maxlength="100" required>
             </label>
             <br />
          </fieldset>
@@ -50,66 +50,14 @@
             <br />
          </fieldset>
          <br />
+         <p> <i>* Indicates a Required Field </i> </p>
          <input type="hidden" value="add" name="post_type" >
          <input type = "submit" value = "Submit">
       </fieldset>
    </form>
    <br/>
    
-<!--    <table>
-      <caption></caption>
-      <thead>
-         <tr>
-            <th><b>Class ID</b></th>
-            <th><b>Class Name</b></th>
-            <th><b>Credits</b></th>
-            <th><b>Professor</b></th>
-            <th colspan="2"><b>Modify</b></th>
-         </tr>
-      </thead>
-      <tbody>
-         <tr>
-            <td>5</td>
-            <td>Charms</td>
-            <td>4.0</td>
-            <td>Filius Flitwick</td>
-            <td><button onclick="window.location.href = 'update_classes';">Edit</button></td>
-            <td><button onclick="window.location.href = 'classes';">Delete</button></td>
-         </tr>
-         <tr>
-            <td>2</td>
-            <td>Defense Against the Dark Arts</td>
-            <td>4.0</td>
-            <td>Remus Lupin</td>
-            <td><button onclick="window.location.href = 'update_classes';">Edit</button></td>
-            <td><button onclick="window.location.href = 'classes';">Delete</button></td>
-         </tr>
-         <tr>
-            <td>3</td>
-            <td>Divination</td>
-            <td>4.0</td>
-            <td>Minerva McGonagall</td>
-            <td><button onclick="window.location.href = 'update_classes';">Edit</button></td>
-            <td><button onclick="window.location.href = 'classes';">Delete</button></td>
-         </tr>
-         <tr>
-            <td>4</td>
-            <td>Herbology</td>
-            <td>4.0</td>
-            <td>Pomona Sprout</td>
-            <td><button onclick="window.location.href = 'update_classes';">Edit</button></td>
-            <td><button onclick="window.location.href = 'classes';">Delete</button></td>
-         </tr>
-         <tr>
-            <td>1</td>
-            <td>Potions</td>
-            <td>4.0</td>
-            <td>Severus Snape</td>
-            <td><button onclick="window.location.href = 'update_classes';">Edit</button></td>
-            <td><button onclick="window.location.href = 'classes';">Delete</button></td>
-         </tr>
-      </tbody>
-   </table> -->
+
 
    <!-- Table populated from database using SELECT -->
    <table>

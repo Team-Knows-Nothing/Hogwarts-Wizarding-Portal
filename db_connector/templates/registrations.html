@@ -43,98 +43,13 @@
                <br />
             </fieldset>
             <br />
+            <p> <i>* Indicates a Required Field </i> </p>
             <input type="hidden" value="add" name="post_type" >
             <input type = "submit" value = "Submit">
          </fieldset>
       </form>
       <br />
- <!--   <table>
-      <caption></caption>
-      <thead>
-         <tr>
-            <th><b>Student_ID</b></th>
-            <th><b>Last Name</b></th>
-            <th><b>First Name</b></th>
-            <th><b>Class_ID</b></th>
-            <th>Class</th>
-            <th colspan="2"><b>Modify</b></th>
-         </tr>
-      </thead>
-      <tbody>
-         <tr>
-            <td>6</td>
-            <td>Diggory</td>
-            <td>Cedric</td>
-            <td>2</td>
-            <td>Defense Against the Dark Arts</td>
-            <td><button onclick="window.location.href = 'update_students';">Edit</button></td>
-            <td><button onclick="window.location.href = 'index';">Delete</button></td>
-         </tr>
-         <tr>
-            <td>6</td>
-            <td>Diggory</td>
-            <td>Cedric</td>
-            <td>4</td>
-            <td>Herbology</td>
-            <td><button onclick="window.location.href = 'update_students';">Edit</button></td>
-            <td><button onclick="window.location.href = 'index';">Delete</button></td>
-         </tr>
-         <tr>
-            <td>2</td>
-            <td>Granger</td>
-            <td>Hermione</td>
-            <td>2</td>
-            <td>Defense Against the Dark Arts</td>
-            <td><button onclick="window.location.href = 'update_students';">Edit</button></td>
-            <td><button onclick="window.location.href = 'index';">Delete</button></td>
-         </tr>
-         <tr>
-            <td>2</td>
-            <td>Granger</td>
-            <td>Hermione</td>
-            <td>5</td>
-            <td>Charms</td>
-            <td><button onclick="window.location.href = 'update_students';">Edit</button></td>
-            <td><button onclick="window.location.href = 'index';">Delete</button></td>
-         </tr>
-         <tr>
-            <td>4</td>
-            <td>Lovegood</td>
-            <td>Luna</td>
-            <td>5</td>
-            <td>Charms</td>
-            <td><button onclick="window.location.href = 'update_students';">Edit</button></td>
-            <td><button onclick="window.location.href = 'index';">Delete</button></td>
-         </tr>
-         <tr>
-            <td>5</td>
-            <td>Malfoy</td>
-            <td>Draco</td>
-            <td>1</td>
-            <td>Potions</td>
-            <td><button onclick="window.location.href = 'update_students';">Edit</button></td>
-            <td><button onclick="window.location.href = 'index';">Delete</button></td>
-         </tr>
-         <tr>
-            <td>1</td>
-            <td>Potter</td>
-            <td>Harry</td>
-            <td>2</td>
-            <td>Defense Against the Dark Arts</td>
-            <td><button onclick="window.location.href = 'update_students';">Edit</button></td>
-            <td><button onclick="window.location.href = 'index';">Delete</button></td>
-         </tr>
-         <tr>
-            <td>3</td>
-            <td>Weasley</td>
-            <td>Ronald</td>
-            <td>3</td>
-            <td>Divination</td>
-            <td><button onclick="window.location.href = 'update_students';">Edit</button></td>
-            <td><button onclick="window.location.href = 'index';">Delete</button></td>
-         </tr>   
-      </tbody>
-   </table> -->
+
 
    <!-- Table populated from database using SELECT -->
    <table>
@@ -171,38 +86,32 @@
       </tbody>
    </table>
 
-<!-- 
-   <form action = '/Registrations' method = "post">
+<!-- search for student POST form -->
+   <form action = '/Registrations' method = "post" class = "addform">
       <fieldset>
-         <legend>Search For a Hogwarts Student</legend>
+         <legend>Search Filter: Lookup Student's Registration</legend>
    
          <fieldset>
-            <label>First Name:
-               <input type="text" name="first_name_search" size="30" maxlength="100">
+            <label>*First Name:
+               <input type="text" name="first_name_search" size="30" maxlength="100" required>
             </label>
             <br />
          </fieldset>
          <br />
    
          <fieldset>
-            <label>Last Name:
-               <input type="text" name="last_name_search" size="30" maxlength="100">
+            <label>*Last Name:
+               <input type="text" name="last_name_search" size="30" maxlength="100" required>
             </label>
             <br />
          </fieldset>
          <br />
-         <p>- OR -</p>
-         
-         <br/>
-         <fieldset>
-            <label>Student ID:
-               <input type="number" name="student_ID_search" size="30" maxlength="100">
-            </label>
-            <br />
-         </fieldset>
+         <p> <i>* Indicates a Required Field </i> </p>
+         <input type="hidden" value="search" name="post_type" >
          <input type="submit" value="Submit Search Information" />
+         <td><button onclick= window.location.href="/Registrations"> Undo Filter</button></td>
     </fieldset>
-   </form> -->
+   </form>
 
 
 </body>

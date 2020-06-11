@@ -19,6 +19,7 @@ def show_students():
 	if request.method == 'GET':
 		print("\n------- index GET -----")
 		print("\nExecuting a sample query on the database using the credentials from db_credentials.py")
+		# show ALL students in database
 		query = 'SELECT ID, Student_Lname, Student_Fname, Student_Birthdate, Student_Year,(SELECT House_Name FROM Houses WHERE Students.House_ID = Houses.ID) FROM Students ORDER BY `Student_Lname` ASC;'
 		result = execute_query(db_connection, query).fetchall()
 		print("\nTable select Result:\n",result)
@@ -65,7 +66,7 @@ def show_students():
 
 		query = 'SELECT ID, Student_Lname, Student_Fname, Student_Birthdate, Student_Year,(SELECT House_Name FROM Houses WHERE Students.House_ID = Houses.ID) FROM Students ORDER BY `Student_Lname` ASC;'
 		result = execute_query(db_connection, query).fetchall()
-		print("GET FOR INDEX PAGE",result)
+		print(" INDEX PAGE",result)
 		return render_template('index.html', rows=result)
 
 
@@ -76,6 +77,7 @@ def update_student(id):
 	db_connection = connect_to_database()
 	if request.method == 'GET':
 		print('The GET request')
+		# find data for ONLY the student that is to be updated
 		student_query = 'SELECT ID, Student_Fname, Student_Lname, Student_Birthdate, Student_year from Students WHERE id = %s' % (id)
 		student_result = execute_query(db_connection, student_query).fetchone()
 		# query for FK columns
@@ -364,7 +366,13 @@ def show_registrations():
 			query = 'INSERT INTO Registrations (Student_ID, Class_ID)  VALUES (%s,%s)'
 			data = (student_id,class_id)
 			execute_query(db_connection, query, data)
-		if request.form['post_type'] == "delete":
+
+			# Display Table
+			query = 'SELECT Student_ID,(SELECT Student_LName FROM Students WHERE Registrations.Student_ID = Students.ID) AS `Last Name` , (SELECT Student_FName FROM Students WHERE Registrations.Student_ID = Students.ID) AS `First Name` ,Class_ID, (SELECT Class_Name FROM Classes WHERE Registrations.Class_ID = Classes.ID) FROM `Registrations` ORDER BY `Last Name` ASC;'
+			result = execute_query(db_connection, query).fetchall()
+			print(result)
+			return render_template('registrations.html', rows=result)
+		elif request.form['post_type'] == "delete":
 			print("\n------- Registrations POST delete -----")
 			print("\nDeleting a registration from the database")
 
@@ -377,20 +385,34 @@ def show_registrations():
 			data = (registration_student_id, registration_class_id)
 			execute_query(db_connection, query, data)
 
-		# Display Table
-		query = 'SELECT Student_ID,(SELECT Student_LName FROM Students WHERE Registrations.Student_ID = Students.ID) AS `Last Name` , (SELECT Student_FName FROM Students WHERE Registrations.Student_ID = Students.ID) AS `First Name` ,Class_ID, (SELECT Class_Name FROM Classes WHERE Registrations.Class_ID = Classes.ID) FROM `Registrations` ORDER BY `Last Name` ASC;'
-		result = execute_query(db_connection, query).fetchall()
-		print(result)
-		return render_template('registrations.html', rows=result)
-		
+			# Display Table
+			query = 'SELECT Student_ID,(SELECT Student_LName FROM Students WHERE Registrations.Student_ID = Students.ID) AS `Last Name` , (SELECT Student_FName FROM Students WHERE Registrations.Student_ID = Students.ID) AS `First Name` ,Class_ID, (SELECT Class_Name FROM Classes WHERE Registrations.Class_ID = Classes.ID) FROM `Registrations` ORDER BY `Last Name` ASC;'
+			result = execute_query(db_connection, query).fetchall()
+			print(result)
+			return render_template('registrations.html', rows=result)
 
-		# elif student_ID_search:
-		# 	query = 'SELECT Student_ID,(SELECT Student_LName FROM Students WHERE Registrations.Student_ID = Students.ID) AS `Last Name` , (SELECT Student_FName FROM Students WHERE Registrations.Student_ID = Students.ID) AS `First Name` ,Class_ID, (SELECT Class_Name FROM Classes WHERE Registrations.Class_ID = Classes.ID) FROM `Registrations` WHERE Student_ID = (%s) ORDER BY `Last Name` ASC;'
-		# 	data = student_ID_search
-		# 	result = execute_query(db_connection, query,data).fetchall()
-			
-		# 	print(result)
-		# 	return render_template('registrations.html', rows=result)
+		elif request.form['post_type'] == "search":
+			print("\n------- Registrations POST search -----")
+			print("\n Searching a student from the database")
+
+			# Gather input fields into variable data
+			first_name_search = request.form['first_name_search']
+			last_name_search = request.form['last_name_search']
+
+			# Display Table
+			query = 'SELECT Student_ID,(SELECT Student_LName FROM Students WHERE Registrations.Student_ID = Students.ID) AS `Last Name` ,(SELECT Student_FName FROM Students WHERE Registrations.Student_ID = Students.ID) AS `First Name` ,Class_ID, (SELECT Class_Name FROM Classes WHERE Registrations.Class_ID = Classes.ID) FROM `Registrations`WHERE  Student_ID = (SELECT Students.ID FROM Students WHERE Registrations.Student_ID = Students.ID AND Students.Student_Fname = %s AND Students.Student_Lname = %s) ORDER BY `Last Name` ASC'
+			data = (first_name_search, last_name_search)
+			result = execute_query(db_connection, query, data).fetchall()
+
+			if result == None:
+				return "No such student exists, or there was a typo in your search!"
+
+			print(result)
+
+			return render_template('registrations.html', rows=result)
+
+		
+		
 
 
 
